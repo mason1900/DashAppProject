@@ -238,6 +238,8 @@ def serve_layout():
                         html.Span([
                             obj_usertable
                         ], id='user-data-area'),
+                        html.H5('Number of users accounts in the system:'),
+                        html.P(id='num-of-users'),
                     ], className='six columns')
                 ], className='twelve columns')
             ], style=tab_style, selected_style=tab_selected_style),
@@ -471,10 +473,14 @@ def drop_user(n_clicks, userID):
 
 @app.callback(
     [Output('user-data-area', 'children'),
+     Output('num-of-users', 'children'),
      Output('user-dropdown', 'options')],
     [Input('signal-1', 'children'),
      Input('signal-2', 'children'),
      Input('signal-3', 'children')])
 def update_user_list(value1, value2, value3):
     print('user refreshed')
-    return [fetch_users(), fetch_users_options()]
+    n_users = db.session.query(Users).count()
+    if n_users is not None and n_users > 0:
+        return [fetch_users(), n_users, fetch_users_options()]
+    return [fetch_users(), 0, fetch_users_options()]
