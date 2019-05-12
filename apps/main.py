@@ -1,4 +1,3 @@
-import flask
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
@@ -6,7 +5,6 @@ from dash.dependencies import Input, Output, State
 from app import app, db, HistoricalPrice, Position, Portfolio, Orders, Users
 import pandas as pd
 import plotly.graph_objs as go
-import pandas as pd
 import dash_table
 from datetime import datetime as dt, timedelta
 
@@ -266,7 +264,7 @@ holding_layout=html.Div([
 
 
 def serve_layout():
-    layout = html.Div([
+    _layout = html.Div([
         dcc.Tabs(id='user-tabs', children=[
             dcc.Tab(id='user-main-tab', label='Stock simulation', value='main-tab',children=[
                 main_layout
@@ -279,7 +277,7 @@ def serve_layout():
         html.Div(id='signal', style={'display': 'none'}),
         html.Div(id='signal2', style={'display': 'none'}),
     ])
-    return layout
+    return _layout
 
 
 layout = serve_layout()
@@ -447,7 +445,7 @@ def place_order_submit(n_clicks, symbol, ordertype, shares, pricetype, price, da
         order = Orders(UserID=session_id, TickerID=symbol.upper(), OrderType=ordertype, Shares=shares, PriceType=pricetype,
                        Price=price, OrderDate=date)
         status, msg = add_order(order)
-        if status == True:
+        if status:
             return ['Success! Purchased' + symbol + ' at ' + str(date) + ' Timestamp: ' +str(dt.today()), 'place']
         else:
             return [msg, '']
