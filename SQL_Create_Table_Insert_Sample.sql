@@ -104,3 +104,4 @@ SELECT * FROM Portfolio
 SELECT * FROM Position
 SELECT * FROM Orders
 SELECT * FROM HistoricalPrice
+
