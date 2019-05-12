@@ -45,7 +45,6 @@ def fecth_stock_info(strTickerlist):
 
 def fetch_all_stocks(strTickerlist, start, end):
     symbols = strTickerlist.split()
-    noa = len(symbols)
 
     # start = "2013-01-01"
     # end = "2018-12-01"
