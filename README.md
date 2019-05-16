@@ -16,7 +16,7 @@ The object of this project is to design and implement a lightweight financial da
 
 The project is implemented using SQL server Express as backend and Python Dash as the frontend which interacts with user as a web application. Some other Python packages and frameworks are also used in this project, such as “Plotly”, “SQLAlchemy”, “Flask”, “Flask-SQLAlchemy”, and “fix-yahoo-finance”.
 
-![Overview](.\docs\Overview.png)
+![Overview](./docs/Overview.png)
 
 The Dash framework is built upon React.js as the browser front end and Flask as the web server backend. Plotly is a visualization framework which involves interaction with Dash. SQLAlchemy is a Python SQL toolkit which provides interfaces including SQL Expression Language and ORM (Object Relational Mapper)  ,and Flask-SQLAlchemy is a wrapper which manages SQLAlchemy sessions within Dash/Flask.
 
