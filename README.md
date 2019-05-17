@@ -46,6 +46,7 @@ Currently, this project possesses some **security risks**, including session hij
 
 ## TODO
 
+- Implement System Reset function
 - Implement Short/Buy to Cover orders and Margin Call
 - Implement Limit and Stop orders
 - Implement multiple validations for user inputs
